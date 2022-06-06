@@ -8,10 +8,20 @@
         android:title="Salir"
         app:showAsAction="always|withText" />
     <item
-        android:id="@+id/cerra"
-        android:icon="@drawable/common_full_open_on_phone"
-        android:title="cerra_sesion"
-        app:showAsAction="always|withText" />
+        android:id="@+id/buscar"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Buscar"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/favorita"
+        android:icon="@drawable/corazon"
+        android:title="Favorita "
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/perfil"
         android:icon="@drawable/i"

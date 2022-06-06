@@ -1,41 +1,40 @@
-package com.example.segundoevalucacion
+package com.example.segundoevalucacion.fragment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.segundoevalucacion.databinding.ActivityAnimalBinding
-import com.example.segundoevalucacion.databinding.ActivityLikeBinding
-import com.example.segundoevalucacion.preferencia.Prefs
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.segundoevalucacion.R
 import com.example.segundoevalucacion.publicacion.Publicacion
 import com.example.segundoevalucacion.publicacion.PublicacionAdapter
-import com.example.segundoevalucacion.viewModel.MainViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
-class LikeActivity : AppCompatActivity() {
-    lateinit var binding: ActivityLikeBinding
-    private lateinit var viewModel: MainViewModel
-    var email=""
-    var img =""
-    lateinit var prefs: Prefs
-    var imagen=""
 
-    private val database = Firebase.database
-    var web=""
-
+class LikeFragment : Fragment() {
     private lateinit var db: FirebaseDatabase
     private lateinit var reference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLikeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_like, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var recycler: RecyclerView = view.findViewById(R.id.recycler_like)
 
         initDB()
-        ponerListenerDB()
-    }
-    private fun ponerListenerDB() {
         val postListener =  object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val lista : ArrayList<Publicacion> = ArrayList()
@@ -47,7 +46,8 @@ class LikeActivity : AppCompatActivity() {
                 }
                 //Ordeno esta lista por marca de tiempo
                 lista.sortBy { mensaje -> mensaje.fecha }
-                rellenarLayout(lista)
+                recycler.adapter = PublicacionAdapter(lista)
+                recycler.scrollToPosition(lista.size-1)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -58,23 +58,13 @@ class LikeActivity : AppCompatActivity() {
         reference.addValueEventListener(postListener)
     }
 
+    companion object {
+        fun newInstance(): HomeFragment {
+            return HomeFragment()
+        }
+    }
     private fun initDB() {
         db= FirebaseDatabase.getInstance("https://segundoevalucion-default-rtdb.firebaseio.com/")
         reference = db.getReference("like").child(FirebaseAuth.getInstance().uid!!)
-    }
-
-
-
-    private fun rellenarLayout(lista: ArrayList<Publicacion> ) {
-        // val linearLayoutManager = LinearLayoutManager(this)
-        // binding.recycler.layoutManager = linearLayoutManager
-
-
-        //binding.recyclerLike.adapter = PublicacionAdapter(lista)
-        //binding.recyclerLike.scrollToPosition(lista.size-1)
-
-
-
-
     }
 }

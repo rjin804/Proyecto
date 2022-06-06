@@ -167,15 +167,16 @@
         app:layout_constraintTop_toBottomOf="@+id/img_mapa" />
 
     <Button
-        android:id="@+id/bnt_like"
+        android:id="@+id/bnt_seccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="LIKES"
+        android:backgroundTint="#CA1515"
+        android:text="Cerrar Seccion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ajuste" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_publicacion" />
 
     <Button
         android:id="@+id/btn_publicacion"
@@ -186,7 +187,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bnt_like" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_ajuste" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

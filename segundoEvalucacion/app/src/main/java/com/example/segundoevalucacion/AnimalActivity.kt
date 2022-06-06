@@ -1,10 +1,15 @@
 package com.example.segundoevalucacion
 
+import android.app.Fragment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.example.segundoevalucacion.databinding.ActivityAnimalBinding
+import com.example.segundoevalucacion.fragment.BuscarFragment
+import com.example.segundoevalucacion.fragment.HomeFragment
+import com.example.segundoevalucacion.fragment.LikeFragment
 import com.example.segundoevalucacion.preferencia.Prefs
 import com.example.segundoevalucacion.publicacion.Publicacion
 import com.example.segundoevalucacion.publicacion.PublicacionAdapter
@@ -35,9 +40,12 @@ class AnimalActivity : AppCompatActivity() {
         setContentView(binding.root)
         title="Publicaciones"
         cogerDatos()
-        initDB()
+        //initDB()
         listener()
-        ponerListenerDB()
+        //ponerListenerDB()
+        binding.toolbar2.title="Publicaciones"
+        val home = HomeFragment()
+        fragmento(home)
 
     }
 
@@ -53,7 +61,7 @@ class AnimalActivity : AppCompatActivity() {
                 }
                 //Ordeno esta lista por marca de tiempo
                 lista.sortBy { mensaje -> mensaje.fecha }
-                rellenarLayout(lista)
+                //rellenarLayout(lista)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -103,8 +111,23 @@ class AnimalActivity : AppCompatActivity() {
                     startActivity(i)
                     true
                 }
-                R.id.cerra->{
-                    cerrarSesion()
+                R.id.home->{
+                    binding.btnFloat.visibility=View.VISIBLE
+                    binding.toolbar2.title="Publicaciones"
+                    val home = HomeFragment()
+                    fragmento(home)
+                    true
+                }
+                R.id.favorita->{
+                    binding.btnFloat.visibility=View.INVISIBLE
+                    binding.toolbar2.title="Favoritos"
+                    fragmento(LikeFragment())
+                    true
+                }
+                R.id.buscar->{
+                    binding.btnFloat.visibility=View.INVISIBLE
+                    binding.toolbar2.title="Buscar"
+                    fragmento(BuscarFragment())
                     true
                 }
                 else->{
@@ -115,25 +138,23 @@ class AnimalActivity : AppCompatActivity() {
         }
     }
 
-    private fun rellenarLayout(lista: ArrayList<Publicacion> ) {
-       // val linearLayoutManager = LinearLayoutManager(this)
-       // binding.recycler.layoutManager = linearLayoutManager
-        binding.recycler.adapter = PublicacionAdapter(lista)
-        binding.recycler.scrollToPosition(lista.size-1)
+    private fun fragmento(fra: androidx.fragment.app.Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
 
+        transaction.replace(R.id.fragment_view, fra)
 
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
 
-    private fun cerrarSesion() {
-        prefs.borrarTodo()
-        FirebaseAuth.getInstance().signOut()
-        var i = Intent(this, MainActivity::class.java)
-        startActivity(i)
-    }
 
     private fun borrar() {
         viewModel.deleteAllAnimal()
     }
 
 }
+
+
+
+

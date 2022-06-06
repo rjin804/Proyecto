@@ -131,9 +131,16 @@ class AgregarPerfilActivity : AppCompatActivity() {
         binding.btnPublicacion.setOnClickListener {
             startActivity(Intent(this,MiPublicacionActivity::class.java))
         }
-        binding.bntLike.setOnClickListener {
-            startActivity(Intent(this,LikeActivity::class.java))
+        binding.bntSeccion.setOnClickListener {
+            cerrarSesion()
         }
+    }
+
+    private fun cerrarSesion() {
+        prefs.borrarTodo()
+        FirebaseAuth.getInstance().signOut()
+        var i = Intent(this, MainActivity::class.java)
+        startActivity(i)
     }
 
     private fun dialogo() {
