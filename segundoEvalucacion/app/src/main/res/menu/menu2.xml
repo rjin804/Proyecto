@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sonido"
+        android:icon="@drawable/sonido"
+        android:title="Sonido"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/brillo"
+        android:icon="@drawable/ic_baseline_brightness_high_24"
+        android:title="Brillo"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/video"
+        android:icon="@drawable/play"
+        android:title="Video"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/web"
+        android:icon="@drawable/buscar"
+        android:title="Web"
+        app:showAsAction="ifRoom" />
+</menu>

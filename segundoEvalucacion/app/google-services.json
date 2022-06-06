@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "313865763898",
+    "firebase_url": "https://segundoevalucion-default-rtdb.firebaseio.com",
+    "project_id": "segundoevalucion",
+    "storage_bucket": "segundoevalucion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313865763898:android:f976b4cedd8505262b4903",
+        "android_client_info": {
+          "package_name": "com.example.segundoevalucacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313865763898-v8ciaqgotela1qbqeh4t447b0qlgc6re.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.segundoevalucacion",
+            "certificate_hash": "718200cc37467a4e74352ebb5fbe2544f4391780"
+          }
+        },
+        {
+          "client_id": "313865763898-pflnf35ojhra6e55v6i5klag9i04ss5s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD32FPpeCrtpfpQu6r43Te-OWTgNV7-BEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313865763898-pflnf35ojhra6e55v6i5klag9i04ss5s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

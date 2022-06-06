@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MenuFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_200"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/img2_sonido"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/sonido"
+            app:layout_constraintBottom_toBottomOf="@+id/img2_brillo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img2_brillo"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/img2_brillo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:src="@drawable/ic_baseline_brightness_high_24"
+            app:layout_constraintBottom_toBottomOf="@+id/img2_play"
+            app:layout_constraintStart_toEndOf="@+id/img2_sonido"
+            app:layout_constraintTop_toTopOf="@+id/img2_play" />
+
+        <ImageView
+            android:id="@+id/img2_play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:src="@drawable/play"
+            app:layout_constraintBottom_toBottomOf="@+id/img2_busqueda"
+            app:layout_constraintStart_toEndOf="@+id/img2_brillo"
+            app:layout_constraintTop_toTopOf="@+id/img2_busqueda" />
+
+        <ImageView
+            android:id="@+id/img2_busqueda"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/buscar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img2_play"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
