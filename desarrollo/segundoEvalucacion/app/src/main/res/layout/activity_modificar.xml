@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FD93B7"
+    android:orientation="vertical"
+    android:padding="4dp"
+    tools:context=".ModificarActivity">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:text="@string/modificar"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/ed_titulo1"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/titulo"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/ed_descripcion1"
+        android:layout_width="358dp"
+        android:layout_height="159dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="@string/descripcion"
+        android:inputType="textMultiLine" />
+
+    <LinearLayout
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="21dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:srcCompat="@drawable/add" />
+
+        <ImageView
+            android:id="@+id/img_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
+
+    </LinearLayout>
+
+    <SearchView
+        android:id="@+id/search_view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/img_view1"
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
+    <LinearLayout
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_modifica"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:backgroundTint="#E91E63"
+            android:gravity="center"
+            android:text="@string/btn_modificar" />
+
+        <Button
+            android:id="@+id/btn_volve"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="41dp"
+            android:backgroundTint="#4CAF50"
+            android:gravity="center"
+            android:text="VOLVER" />
+
+    </LinearLayout>
+
+</LinearLayout>

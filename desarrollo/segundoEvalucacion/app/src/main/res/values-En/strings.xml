@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InterChat</string>
+    <string name="registrar">Register</string>
+    <string name="agregar">Add Animals</string>
+    <string name="titulo">Title</string>
+    <string name="descripcion">Description</string>
+    <string name="guardar">Save</string>
+    <string name="limpiar">Clean</string>
+    <string name="modificar">Modify Animal</string>
+    <string name="borrar">Delete</string>
+    <string name="btn_modificar">Modify</string>
+    <string name="perfil">Profile</string>
+    <string name="item_borra">Delete All</string>
+    <string name="nombre">Enter your name</string>
+    <string name="apellido">Enter your last name</string>
+    <string name="mapa">Click Map for location</string>
+    <string name="localizacion">latitude</string>
+    <string name="longitude">longitude</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="ajuste">Modify Setting</string>
+    <string name="brillo">Modify brightness </string>
+    <string name="web">Problem Finder</string>
+    <string name="Video">App Explanatory Video </string>
+    <string name="sonido">Modify Sound </string>
+    <string name="publicacion">Publicacion</string>
+</resources>
