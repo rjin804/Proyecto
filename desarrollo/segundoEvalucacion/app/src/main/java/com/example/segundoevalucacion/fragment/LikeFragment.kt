@@ -14,6 +14,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 
+/**
+ * Like fragment
+ *
+ * @constructor Create empty Like fragment
+ */
 class LikeFragment : Fragment() {
     private lateinit var db: FirebaseDatabase
     private lateinit var reference: DatabaseReference

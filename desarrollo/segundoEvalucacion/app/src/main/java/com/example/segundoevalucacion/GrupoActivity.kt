@@ -23,6 +23,11 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
 
+/**
+ * Grupo activity
+ *
+ * @constructor Create empty Grupo activity
+ */
 class GrupoActivity : AppCompatActivity() {
     lateinit var binding: ActivityGrupoBinding
     lateinit var messageAdapter: MensajeAdapter

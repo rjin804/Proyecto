@@ -27,6 +27,11 @@ import com.example.segundoevalucacion.interfaz.Sonido
 import com.example.segundoevalucacion.interfaz.Video
 import java.lang.Exception
 
+/**
+ * Ajuste activity
+ *
+ * @constructor Create empty Ajuste activity
+ */
 class AjusteActivity : AppCompatActivity(),OnFragmentsActionListener,Brillo, Sonido,Video {
     lateinit var binding: ActivityAjusteBinding
 

@@ -10,7 +10,11 @@ import android.widget.ImageView
 import com.example.segundoevalucacion.R
 import com.example.segundoevalucacion.interfaz.Sonido
 
-
+/**
+ * Sonido fragment
+ *
+ * @constructor Create empty Sonido fragment
+ */
 class SonidoFragment : Fragment() {
 
     var enceder = true

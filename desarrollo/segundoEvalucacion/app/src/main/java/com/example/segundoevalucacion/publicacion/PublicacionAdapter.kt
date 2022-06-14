@@ -11,7 +11,12 @@ import com.example.segundoevalucacion.R
 import com.example.segundoevalucacion.UpdateActivity
 import com.example.segundoevalucacion.databinding.ActivityAddBinding.bind
 import com.example.segundoevalucacion.databinding.AnimalLayoutBinding
-
+/**
+ * Publicacion adapter
+ *
+ * @property lista
+ * @constructor Create empty Publicacion adapter
+ */
 class PublicacionAdapter (private val lista:ArrayList<Publicacion>):
     RecyclerView.Adapter<PublicacionViewHolder>() {
     lateinit var context: Context

@@ -33,6 +33,12 @@ import com.squareup.picasso.Picasso
 import java.io.*
 import java.lang.String
 
+
+/**
+ * Agregar perfil activity
+ *
+ * @constructor Create empty Agregar perfil activity
+ */
 class AgregarPerfilActivity : AppCompatActivity() {
     lateinit var binding: ActivityAgregarPerfilBinding
     var email= ""
@@ -72,6 +78,8 @@ class AgregarPerfilActivity : AppCompatActivity() {
         storageReference= Firebase.storage.reference
 
 
+
+
         cogerDatos()
         initDB()
         obtenerDatos()
@@ -103,6 +111,7 @@ class AgregarPerfilActivity : AppCompatActivity() {
                     val perfil = HashMap<kotlin.String,Any>()
                     perfil["img"] = imagen
                     db.reference.child("usuarioPerfil").child(FirebaseAuth.getInstance().uid!!).updateChildren(perfil)
+                    obtenerDatos()
 
                 }
                 .addOnFailureListener {
@@ -207,7 +216,7 @@ class AgregarPerfilActivity : AppCompatActivity() {
                     if (lad.trim().length!=0&& !lad.isNullOrEmpty()){
                         binding.txt6Latitud.visibility=View.VISIBLE
                     }
-                    if (log.trim().length!=0&& log.isNullOrEmpty()){
+                    if (log.trim().length!=0&& !log.isNullOrEmpty()){
                         binding.txt6Longitud.visibility=View.VISIBLE
                     }
                 }
@@ -227,7 +236,6 @@ class AgregarPerfilActivity : AppCompatActivity() {
                 cambiarFoto()
             }
             .setPositiveButton("Camara") { _,_ ->
-
                 fotoCamara()
             }
             .setCancelable(false)
@@ -237,8 +245,8 @@ class AgregarPerfilActivity : AppCompatActivity() {
 
     private fun fotoCamara() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePicture ->
-            takePicture.resolveActivity(this.packageManager)?.also {
-                startActivityForResult(takePicture, REQUEST_CODE_TAKE_PHOTO)
+            takePicture.resolveActivity(packageManager)?.also {
+                startActivityForResult(takePicture,REQUEST_CODE_TAKE_PHOTO)
 
             }
         }
@@ -264,9 +272,9 @@ class AgregarPerfilActivity : AppCompatActivity() {
                     val path =MediaStore.Images.Media.insertImage(this.getContentResolver(),imageBitmap,"perfil.png",null)
                     subirImagen(imagenref, Uri.parse(path) )
                 }
-                .addOnFailureListener{
-                    Toast.makeText(this,"ERROR",Toast.LENGTH_SHORT).show()
-                }
+                    .addOnFailureListener{
+                        Toast.makeText(this,"ERROR",Toast.LENGTH_SHORT).show()
+                    }
 
             }
         }

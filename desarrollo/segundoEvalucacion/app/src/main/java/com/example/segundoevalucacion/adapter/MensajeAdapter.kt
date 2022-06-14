@@ -25,8 +25,17 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
+/**
+ * Mensaje adapter
+ *
+ * @property context
+ * @property messageList
+ * @property senderRoom
+ * @property receiverRoom
+ * @constructor Create empty Mensaje adapter
+ */
 class MensajeAdapter(val context: Context, val messageList: ArrayList<Mensaje>,
-    val senderRoom:String, val receiverRoom :String)
+                     val senderRoom:String, val receiverRoom :String)
     :RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
 
     val ITEM_RECEIVE = 1;
@@ -49,7 +58,7 @@ class MensajeAdapter(val context: Context, val messageList: ArrayList<Mensaje>,
 
             holder.binding.txtFecha5.text=convertirFecha(currentMessage.fecha)
             if(!currentMessage.imagen.equals("")){
-               Picasso.get().load(currentMessage.imagen).resize(150,150).centerCrop().into(holder.binding.imageSend)
+                Picasso.get().load(currentMessage.imagen).resize(150,150).centerCrop().into(holder.binding.imageSend)
                 holder.binding.imageSend.visibility= View.VISIBLE
             }else{
                 holder.binding.imageSend.visibility= View.GONE
@@ -60,48 +69,49 @@ class MensajeAdapter(val context: Context, val messageList: ArrayList<Mensaje>,
             }else{
                 holder.binding.imgPerfil4.visibility= View.GONE
             }
+            holder.binding.txtSend.text= currentMessage.mensaje
 
 
-                holder.binding.sendLayout.setOnClickListener {
-                    val v = LayoutInflater.from(context).inflate(R.layout.delete_layout, null)
-                    val binding: DeleteLayoutBinding = DeleteLayoutBinding.bind(v)
-                    val dialog = AlertDialog.Builder(context)
-                        .setTitle("Eliminar Mensaje")
-                        .setView(binding.root)
-                        .create()
+            holder.binding.sendLayout.setOnClickListener {
+                val v = LayoutInflater.from(context).inflate(R.layout.delete_layout, null)
+                val binding: DeleteLayoutBinding = DeleteLayoutBinding.bind(v)
+                val dialog = AlertDialog.Builder(context)
+                    .setTitle("Eliminar Mensaje")
+                    .setView(binding.root)
+                    .create()
 
-                    binding.txtEliminar.setOnClickListener {
-                        currentMessage.mensaje = "Este mensaje ha sido eliminado"
-                        currentMessage.mensajeId.let { it ->
-                            FirebaseDatabase.getInstance().reference.child("chat")
-                                .child(senderRoom)
-                                .child("mensaje")
-                                .child(it).setValue(currentMessage)
-                        }
-                        currentMessage.mensajeId.let { it1 ->
-                            FirebaseDatabase.getInstance().reference.child("chat")
-                                .child(receiverRoom)
-                                .child("mensaje")
-                                .child(it1).setValue(currentMessage)
-                        }
-                        dialog.dismiss()
+                binding.txtEliminar.setOnClickListener {
+                    currentMessage.mensaje = "Este mensaje ha sido eliminado"
+                    currentMessage.mensajeId.let { it ->
+                        FirebaseDatabase.getInstance().reference.child("chat")
+                            .child(senderRoom)
+                            .child("mensaje")
+                            .child(it).setValue(currentMessage)
                     }
-
-                    binding.txtEliminarmi.setOnClickListener {
-
-                        currentMessage.mensajeId.let { it2 ->
-                            FirebaseDatabase.getInstance().reference.child("chat")
-                                .child(senderRoom)
-                                .child("mensaje")
-                                .child(it2).setValue(null)
-                        }
-                        dialog.dismiss()
+                    currentMessage.mensajeId.let { it1 ->
+                        FirebaseDatabase.getInstance().reference.child("chat")
+                            .child(receiverRoom)
+                            .child("mensaje")
+                            .child(it1).setValue(currentMessage)
                     }
-                    binding.txtCancelar.setOnClickListener {
-                        dialog.dismiss()
+                    dialog.dismiss()
+                }
+
+                binding.txtEliminarmi.setOnClickListener {
+
+                    currentMessage.mensajeId.let { it2 ->
+                        FirebaseDatabase.getInstance().reference.child("chat")
+                            .child(senderRoom)
+                            .child("mensaje")
+                            .child(it2).setValue(null)
                     }
-                    dialog.show()
-                    false
+                    dialog.dismiss()
+                }
+                binding.txtCancelar.setOnClickListener {
+                    dialog.dismiss()
+                }
+                dialog.show()
+                false
 
 
 
@@ -113,7 +123,7 @@ class MensajeAdapter(val context: Context, val messageList: ArrayList<Mensaje>,
             holder.binding.txtFecha4.text = convertirFecha(currentMessage.fecha)
             holder.binding.txtRecibe.text = currentMessage.mensaje
             if(!currentMessage.imagen.equals("")){
-               Picasso.get().load(currentMessage.imagen).resize(100,100).centerCrop().into(holder.binding.imageRecibe)
+                Picasso.get().load(currentMessage.imagen).resize(100,100).centerCrop().into(holder.binding.imageRecibe)
                 holder.binding.imageRecibe.visibility= View.VISIBLE
             }else{
                 holder.binding.imageRecibe.visibility= View.GONE
@@ -126,31 +136,31 @@ class MensajeAdapter(val context: Context, val messageList: ArrayList<Mensaje>,
             }
 
 
-                holder.binding.recibeLayout.setOnClickListener {
-                    val v = LayoutInflater.from(context).inflate(R.layout.delete_layout, null)
-                    val binding: DeleteLayoutBinding = DeleteLayoutBinding.bind(v)
-                    val dialog = AlertDialog.Builder(context)
-                        .setTitle("Eliminar Mensaje")
-                        .setView(binding.root)
-                        .create()
+            holder.binding.recibeLayout.setOnClickListener {
+                val v = LayoutInflater.from(context).inflate(R.layout.delete_layout, null)
+                val binding: DeleteLayoutBinding = DeleteLayoutBinding.bind(v)
+                val dialog = AlertDialog.Builder(context)
+                    .setTitle("Eliminar Mensaje")
+                    .setView(binding.root)
+                    .create()
 
-                    binding.txtEliminar.visibility= View.INVISIBLE
+                binding.txtEliminar.visibility= View.INVISIBLE
 
-                    binding.txtEliminarmi.setOnClickListener {
+                binding.txtEliminarmi.setOnClickListener {
 
-                        currentMessage.mensajeId.let { it2 ->
-                            FirebaseDatabase.getInstance().reference.child("chat")
-                                .child(senderRoom)
-                                .child("mensaje")
-                                .child(it2).setValue(null)
-                        }
-                        dialog.dismiss()
+                    currentMessage.mensajeId.let { it2 ->
+                        FirebaseDatabase.getInstance().reference.child("chat")
+                            .child(senderRoom)
+                            .child("mensaje")
+                            .child(it2).setValue(null)
                     }
-                    binding.txtCancelar.setOnClickListener {
-                        dialog.dismiss()
-                    }
-                    dialog.show()
-                    false
+                    dialog.dismiss()
+                }
+                binding.txtCancelar.setOnClickListener {
+                    dialog.dismiss()
+                }
+                dialog.show()
+                false
 
 
             }

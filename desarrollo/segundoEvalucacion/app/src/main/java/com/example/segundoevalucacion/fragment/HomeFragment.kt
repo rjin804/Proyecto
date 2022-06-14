@@ -13,6 +13,12 @@ import com.example.segundoevalucacion.publicacion.PublicacionAdapter
 import com.google.firebase.database.*
 
 
+
+/**
+ * Home fragment
+ *
+ * @constructor Create empty Home fragment
+ */
 class HomeFragment : Fragment() {
     private lateinit var db: FirebaseDatabase
     private lateinit var reference: DatabaseReference

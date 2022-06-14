@@ -26,6 +26,12 @@ import java.util.*
 import kotlin.collections.HashMap
 import kotlin.random.Random
 
+
+/**
+ * Notificacion
+ *
+ * @constructor Create empty Notificacion
+ */
 class Notificacion : FirebaseMessagingService(){
 
 

@@ -12,6 +12,11 @@ import com.example.segundoevalucacion.interfaz.Brillo
 
 
 
+/**
+ * Brillo fragment
+ *
+ * @constructor Create empty Brillo fragment
+ */
 class BrilloFragment : Fragment() {
 
     var encender = true
@@ -39,8 +44,8 @@ class BrilloFragment : Fragment() {
                 encender=false
             }else{
 
-                 bri?.brillo(false)
-                 encender=true
+                bri?.brillo(false)
+                encender=true
 
             }
 

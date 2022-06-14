@@ -3,6 +3,11 @@ package com.example.segundoevalucacion.publicacion
 import com.google.firebase.database.Exclude
 
 
+/**
+ * Publicacion
+ *
+ * @constructor Create empty Publicacion
+ */
 class Publicacion {
     constructor()
     constructor(titulo: String, descripcion: String,imgPerfil: String,autor :String,img :String,email:String,id:String,uid:String){

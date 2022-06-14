@@ -14,14 +14,23 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+/**
+ * Registrar activity
+ *
+ * @constructor Create empty Registrar activity
+ */
 class RegistrarActivity : AppCompatActivity() {
     lateinit var binding : ActivityRegistrarBinding
+
     lateinit var prefs: Prefs
+
     lateinit var db: FirebaseDatabase
 
 
     var email =""
+
     var contrasena=""
+
     var contrasena1 =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

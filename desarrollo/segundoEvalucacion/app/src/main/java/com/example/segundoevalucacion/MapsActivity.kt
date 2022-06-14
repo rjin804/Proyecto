@@ -15,6 +15,11 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 
+/**
+ * Maps activity
+ *
+ * @constructor Create empty Maps activity
+ */
 class MapsActivity : AppCompatActivity() ,  OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
     lateinit var map: GoogleMap
     val LOCA_PERM_CODE = 100

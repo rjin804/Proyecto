@@ -33,10 +33,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.String
 import kotlin.toString
 
+/**
+ * Add activity
+ *
+ * @constructor Create empty Add activity
+ */
 class AddActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityAddBinding
-    private lateinit var viewModel: MainViewModel
     var email=""
     var imagen =""
     var nom =""

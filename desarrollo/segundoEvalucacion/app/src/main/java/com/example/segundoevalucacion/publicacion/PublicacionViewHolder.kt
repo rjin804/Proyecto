@@ -13,7 +13,13 @@ import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
-
+/**
+ * Publicacion view holder
+ *
+ * @constructor
+ *
+ * @param v
+ */
 class PublicacionViewHolder(v: View): RecyclerView.ViewHolder(v) {
 
     private val binding = AnimalLayoutBinding.bind(v)

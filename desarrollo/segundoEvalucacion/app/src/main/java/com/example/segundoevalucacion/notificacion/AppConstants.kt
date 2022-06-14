@@ -1,5 +1,10 @@
 package com.example.segundoevalucacion.notificacion
 
+/**
+ * App constants
+ *
+ * @constructor Create empty App constants
+ */
 interface AppConstants {
 
     companion object{

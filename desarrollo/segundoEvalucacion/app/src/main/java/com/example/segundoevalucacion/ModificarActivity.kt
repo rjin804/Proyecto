@@ -28,24 +28,39 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * Modificar activity
+ *
+ * @constructor Create empty Modificar activity
+ */
 class ModificarActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityModificarBinding
-    private lateinit var viewModel: MainViewModel
+
+    //private lateinit var viewModel: MainViewModel
     var email=""
+
     var imagen =""
+
     var autor =""
+
     var descripcion =""
+
     var imgPerfil =""
+
     var titulo=""
+
     var id=""
+
     var uid =""
     private val database = Firebase.database
     private lateinit var db: FirebaseDatabase
     private lateinit var reference: DatabaseReference
+
     lateinit var storageReference: StorageReference
 
     val URL_BASE = "https://pixabay.com/api/"
+
     val KEY ="24239096-415e4587ba4fd9f9918dee9d0"
 
     private val responseLauncher =

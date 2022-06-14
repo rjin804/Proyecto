@@ -17,11 +17,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-
+/**
+ * Animal activity
+ *
+ * @constructor Create empty Animal activity
+ */
 class AnimalActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityAnimalBinding
-    private lateinit var viewModel: MainViewModel
     var email=""
     var img =""
     lateinit var prefs: Prefs
@@ -112,7 +115,7 @@ class AnimalActivity : AppCompatActivity() {
                     true
                 }
                 R.id.home->{
-                   // binding.btnFloat.visibility=View.VISIBLE
+                    // binding.btnFloat.visibility=View.VISIBLE
                     binding.toolbar2.title="Publicaciones"
                     binding.toolbar2.setBackgroundColor(Color.parseColor("#2196F3"))
                     val home = HomeFragment()
@@ -120,14 +123,14 @@ class AnimalActivity : AppCompatActivity() {
                     true
                 }
                 R.id.favorita->{
-                   // binding.btnFloat.visibility=View.INVISIBLE
+                    // binding.btnFloat.visibility=View.INVISIBLE
                     binding.toolbar2.title="Favoritos"
                     binding.toolbar2.setBackgroundColor(Color.parseColor("#E61B1B"))
                     fragmento(LikeFragment())
                     true
                 }
                 R.id.buscar->{
-                   // binding.btnFloat.visibility=View.INVISIBLE
+                    // binding.btnFloat.visibility=View.INVISIBLE
                     binding.toolbar2.title="Buscar"
                     binding.toolbar2.setBackgroundColor(Color.parseColor("#3ADC40"))
                     fragmento(BuscarFragment())
@@ -153,7 +156,7 @@ class AnimalActivity : AppCompatActivity() {
 
 
     private fun borrar() {
-        viewModel.deleteAllAnimal()
+        // viewModel.deleteAllAnimal()
     }
 
 

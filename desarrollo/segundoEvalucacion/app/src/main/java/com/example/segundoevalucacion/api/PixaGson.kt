@@ -2,6 +2,14 @@ package com.example.segundoevalucacion.api
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Pixa gson
+ *
+ * @property user
+ * @property likes
+ * @property imagen
+ * @constructor Create empty Pixa gson
+ */
 data class PixaGson (
     @SerializedName("user")var user: String,
     @SerializedName("likes")var likes: Int,

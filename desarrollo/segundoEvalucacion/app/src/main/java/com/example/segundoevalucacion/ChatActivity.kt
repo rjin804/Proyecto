@@ -46,7 +46,11 @@ import org.json.JSONObject
 import java.lang.Exception
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
-
+/**
+ * Chat activity
+ *
+ * @constructor Create empty Chat activity
+ */
 class ChatActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityChatBinding
@@ -273,14 +277,16 @@ class ChatActivity : AppCompatActivity() {
                     }
             }
 
-       /* topic = "/tipocs/$receiverUid"
-        FirebaseMessaging.getInstance().subscribeToTopic(topic)
-        PushNotification(NotificacionModel( nombre,messaje),
-            token).also {
-            sendNotification(it)
-        }*/
+        /* topic = "/tipocs/$receiverUid"
+         FirebaseMessaging.getInstance().subscribeToTopic(topic)
+         PushNotification(NotificacionModel( nombre,messaje),
+             token).also {
+             sendNotification(it)
+         }*/
+        topic = "/tipocs"
+        FirebaseMessaging.getInstance().subscribeToTopic( "/topics/news")
         getToken(messaje)
-       // Log.d("TOKEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",messaje)
+        // Log.d("TOKEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",messaje)
         binding.txtMensaje.setText("")
 
 
@@ -292,6 +298,7 @@ class ChatActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     val token = snapshot.child("token").value.toString()
+
 
                     val to = JSONObject()
                     val data = JSONObject()
@@ -305,7 +312,7 @@ class ChatActivity : AppCompatActivity() {
                     to.put("data", data)
                     sendNotification(to)
                     Log.d("TOKEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",hisId + " **"+
-                    nombre+"***"+message+"***"+chatId+"***"+token)
+                            nombre+"***"+message+"***"+chatId+"***"+token)
 
 
                 }

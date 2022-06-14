@@ -49,10 +49,14 @@ import java.net.CookieManager
 import java.net.URI
 import java.util.*
 
-
+/**
+ * Update activity
+ *
+ * @constructor Create empty Update activity
+ */
 class UpdateActivity : AppCompatActivity() {
     lateinit var binding: ActivityUpdateBinding
-    private lateinit var viewModel: MainViewModel
+    //private lateinit var viewModel: MainViewModel
     var email=""
     var imagen =""
     var autor =""
@@ -90,7 +94,7 @@ class UpdateActivity : AppCompatActivity() {
         binding = ActivityUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       // viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        // viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         storageReference= Firebase.storage.reference
         reference = FirebaseDatabase.getInstance().getReference()
         initDB()
@@ -195,11 +199,11 @@ class UpdateActivity : AppCompatActivity() {
     }
 
     private fun borrar() {
-       /* val animal = Animal(id, titulo,descripcion, autor,imagen)
-        viewModel.deleteAnimal(animal)
+        /* val animal = Animal(id, titulo,descripcion, autor,imagen)
+         viewModel.deleteAnimal(animal)
 
-        Toast.makeText(this, "Borrado", Toast.LENGTH_SHORT).show()
-        onBackPressed()*/
+         Toast.makeText(this, "Borrado", Toast.LENGTH_SHORT).show()
+         onBackPressed()*/
         db.getReference("publicacion").child(id).removeValue().addOnSuccessListener {
             Toast.makeText(this,"Publicacion borrado",Toast.LENGTH_SHORT).show()
             onBackPressed()

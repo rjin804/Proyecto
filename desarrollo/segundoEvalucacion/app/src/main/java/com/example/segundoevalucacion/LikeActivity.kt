@@ -14,6 +14,11 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
+/**
+ * Like activity
+ *
+ * @constructor Create empty Like activity
+ */
 class LikeActivity : AppCompatActivity() {
     lateinit var binding: ActivityLikeBinding
     private lateinit var viewModel: MainViewModel

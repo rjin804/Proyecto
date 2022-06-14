@@ -15,6 +15,11 @@ import com.example.segundoevalucacion.publicacion.PublicacionAdapter
 import com.google.firebase.database.*
 
 
+/**
+ * Buscar fragment
+ *
+ * @constructor Create empty Buscar fragment
+ */
 class BuscarFragment : Fragment() {
     private lateinit var db: FirebaseDatabase
     private lateinit var reference: DatabaseReference

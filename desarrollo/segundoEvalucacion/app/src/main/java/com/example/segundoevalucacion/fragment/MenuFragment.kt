@@ -13,7 +13,11 @@ import com.example.segundoevalucacion.R
 import com.example.segundoevalucacion.databinding.FragmentMenuBinding
 import com.example.segundoevalucacion.interfaz.OnFragmentsActionListener
 
-
+/**
+ * Menu fragment
+ *
+ * @constructor Create empty Menu fragment
+ */
 class MenuFragment : Fragment() {
 
     private var _binding: FragmentMenuBinding?=null

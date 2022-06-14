@@ -17,6 +17,11 @@ import com.example.segundoevalucacion.interfaz.Video
 import java.lang.Exception
 
 
+/**
+ * Video fragment
+ *
+ * @constructor Create empty Video fragment
+ */
 class VideoFragment : Fragment() {
 
     var enceder=true

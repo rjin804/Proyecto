@@ -2,7 +2,11 @@ package com.example.segundoevalucacion.perfil
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.Exclude
-
+/**
+ * Perfil
+ *
+ * @constructor Create empty Perfil
+ */
 class Perfil {
     var img:String ?=null
     var email:String ?=null

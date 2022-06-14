@@ -17,6 +17,15 @@ import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 
+/**
+ * Comentario adapter
+ *
+ * @property context
+ * @property messageList
+ * @property senderRoom
+ * @property receiverRoom
+ * @constructor Create empty Comentario adapter
+ */
 class ComentarioAdapter (val context: Context, val messageList: ArrayList<Mensaje>,
                          val senderRoom:String, val receiverRoom :String)
     : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {

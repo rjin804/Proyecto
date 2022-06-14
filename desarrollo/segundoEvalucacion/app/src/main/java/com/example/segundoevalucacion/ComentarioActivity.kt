@@ -18,6 +18,11 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 
+/**
+ * Comentario activity
+ *
+ * @constructor Create empty Comentario activity
+ */
 class ComentarioActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityComentarioBinding

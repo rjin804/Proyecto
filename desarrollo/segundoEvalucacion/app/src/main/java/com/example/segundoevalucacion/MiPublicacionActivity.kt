@@ -20,13 +20,20 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 
+/**
+ * Mi publicacion activity
+ *
+ * @constructor Create empty Mi publicacion activity
+ */
 class MiPublicacionActivity : AppCompatActivity() {
     lateinit var binding: ActivityMiPublicacionBinding
 
 
-    private lateinit var viewModel: MainViewModel
+    // private lateinit var viewModel: MainViewModel
     var email=""
+
     var img =""
+
     var imagen=""
 
     private lateinit var db: FirebaseDatabase

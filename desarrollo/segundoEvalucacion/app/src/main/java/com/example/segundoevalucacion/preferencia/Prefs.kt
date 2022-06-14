@@ -2,6 +2,13 @@ package com.example.segundoevalucacion.preferencia
 
 import android.content.Context
 
+/**
+ * Prefs
+ *
+ * @constructor
+ *
+ * @param c
+ */
 class Prefs (c: Context) {
     val FILE_DATA_NAME ="fdn"
     val SHARED_EMAIL ="email"

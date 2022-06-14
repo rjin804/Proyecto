@@ -1,5 +1,10 @@
 package com.example.segundoevalucacion.modelo
 
+/**
+ * Mensaje
+ *
+ * @constructor Create empty Mensaje
+ */
 class Mensaje {
 
     constructor()

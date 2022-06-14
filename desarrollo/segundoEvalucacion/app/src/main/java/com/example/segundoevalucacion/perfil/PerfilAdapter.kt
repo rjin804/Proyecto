@@ -15,7 +15,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import java.lang.String
-
+/**
+ * Perfil adapter
+ *
+ * @property user
+ * @constructor Create empty Perfil adapter
+ */
 class PerfilAdapter (var user:ArrayList<Perfil>):RecyclerView.Adapter<PerfilAdapter.PerfilViewHolder>(){
     lateinit var context: Context
     //lateinit var reference : DatabaseReference
@@ -42,25 +47,25 @@ class PerfilAdapter (var user:ArrayList<Perfil>):RecyclerView.Adapter<PerfilAdap
         if (usuario.img.equals(""))
             usuario.img="https://firebasestorage.googleapis.com/v0/b/segundoevalucion.appspot.com/o/User%2Fperfil.png?alt=media&token=b0e4fd1f-04b6-4fb3-9fa5-848a8fb4b88d"
         Picasso.get().load(usuario.img).resize(150,150).centerCrop().into(holder.binding.imgPerfil1)
-        var estado =""
+        //var estado =""
 
-       /* FirebaseDatabase.getInstance().reference.child("presence").child(usuario.uid!!).get().addOnCompleteListener(object:
-            OnCompleteListener<DataSnapshot> {
-            override fun onComplete(p0: Task<DataSnapshot>) {
-                if (p0.isSuccessful){
-                    if(p0.getResult().exists()){
-                        val dataSnapshot = p0.getResult()
-                        holder.binding.txtEstado.text = String.valueOf(dataSnapshot.value)
-                        estado = String.valueOf(dataSnapshot.value)
-                        if(estado.equals("Offline")){
-                            holder.binding.txtEstado.visibility = View.INVISIBLE
-                        }
+        /* FirebaseDatabase.getInstance().reference.child("presence").child(usuario.uid!!).get().addOnCompleteListener(object:
+             OnCompleteListener<DataSnapshot> {
+             override fun onComplete(p0: Task<DataSnapshot>) {
+                 if (p0.isSuccessful){
+                     if(p0.getResult().exists()){
+                         val dataSnapshot = p0.getResult()
+                         holder.binding.txtEstado.text = String.valueOf(dataSnapshot.value)
+                         estado = String.valueOf(dataSnapshot.value)
+                         if(estado.equals("Offline")){
+                             holder.binding.txtEstado.visibility = View.INVISIBLE
+                         }
 
-                    }
-                }
-            }
+                     }
+                 }
+             }
 
-        })*/
+         })*/
 
 
         val receiverRoom = usuario.uid + FirebaseAuth.getInstance().currentUser?.uid.toString()
@@ -71,9 +76,9 @@ class PerfilAdapter (var user:ArrayList<Perfil>):RecyclerView.Adapter<PerfilAdap
                     if(p0.getResult().exists()){
                         val dataSnapshot = p0.getResult()
                         holder.binding.txtMensaje1.text = String.valueOf(dataSnapshot.child("lastMsg").value)
-                       if(String.valueOf(dataSnapshot.child("lastMsg").value)==null){
-                           holder.binding.txtMensaje1.visibility = View.INVISIBLE
-                       }
+                        if(String.valueOf(dataSnapshot.child("lastMsg").value)==null){
+                            holder.binding.txtMensaje1.visibility = View.INVISIBLE
+                        }
 
                     }
                 }

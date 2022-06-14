@@ -23,6 +23,12 @@ import com.google.firebase.iid.*
 import com.google.firebase.messaging.FirebaseMessaging
 import java.lang.String
 
+/**
+ *  La clase contactor
+ *
+ * @param MainChatActivity clase de usuario que ha iniciar una vez en el app
+ *
+ */
 class MainChatActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainChatBinding
     //lateinit var adapter: PageAdater
@@ -78,6 +84,10 @@ class MainChatActivity : AppCompatActivity() {
 
     }
 
+    /**
+     *Funciones para los botones
+     */
+
     private fun setUp() {
         binding.btnVolver2.setOnClickListener {
             onBackPressed()
@@ -105,7 +115,9 @@ class MainChatActivity : AppCompatActivity() {
         })
     }
 
-
+    /**
+     * Recoger los datos
+     */
 
     private fun cogerDatos() {
         val bundle = intent.extras
@@ -113,6 +125,11 @@ class MainChatActivity : AppCompatActivity() {
         img = bundle?.getString("IMG").toString()
 
     }
+
+    /**
+     * Poner los lista en el recycler
+     *
+     */
 
     private fun recycler(p0 : kotlin.String?) {
         user = ArrayList<Perfil>()
@@ -167,11 +184,18 @@ class MainChatActivity : AppCompatActivity() {
         })
     }
 
+    /**
+     * iniciar el base de dato
+     */
 
     private fun initDB() {
 
         db= FirebaseDatabase.getInstance("https://segundoevalucion-default-rtdb.firebaseio.com/")
     }
+
+    /**
+     * Estado de usando el app
+     */
 
     override fun onResume() {
         super.onResume()
@@ -180,6 +204,10 @@ class MainChatActivity : AppCompatActivity() {
 
 
     }
+
+    /**
+     * Ha salido de app
+     */
 
     override fun onPause() {
         super.onPause()

@@ -12,6 +12,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.segundoevalucacion.R
 
 
+/**
+ * Web fragment
+ *
+ * @constructor Create empty Web fragment
+ */
 class WebFragment : Fragment() {
     val URL_INICIO ="https://support.google.com/websearch/search?q="
     val SEARCH="/search?q="
