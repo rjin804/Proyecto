@@ -7,6 +7,7 @@
     Contiene : 
     * El directorio desarrollo tiene el directorio del proyecto. 
     * El directorio ejecutable tiene el apk de la aplicacion.
+    * El directorio documentacion tecnica tiene el dokkHtml de la aplicacion.
     * El directorio documentos tiene el documento de proyecto.
     * README.md
 
