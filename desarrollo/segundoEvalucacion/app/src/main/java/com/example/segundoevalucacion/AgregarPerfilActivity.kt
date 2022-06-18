@@ -95,7 +95,9 @@ class AgregarPerfilActivity : AppCompatActivity() {
         //email = prefs.leerEmail().toString()
         binding.txt4Email.setText(email)
         Log.d("EMAIL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><",email)
-
+        if(email.isNullOrEmpty()){
+            obtenerDatos()
+        }
 
 
     }
@@ -202,6 +204,8 @@ class AgregarPerfilActivity : AppCompatActivity() {
                     val ap = snapshot.child("apellido").getValue().toString()
                     val log = snapshot.child("log").getValue().toString()
                     val lad = snapshot.child("lad").getValue().toString()
+                    email = snapshot.child("email").getValue().toString()
+                    binding.txt4Email.setText(email)
 
                     binding.txt6Nombre.setText(nom)
                     binding.txt6Apellido.setText(ap)

@@ -9,6 +9,7 @@
     * El directorio ejecutable tiene el apk de la aplicacion.
     * El directorio documentacion tecnica tiene el dokkHtml de la aplicacion.
     * El directorio documentos tiene el documento de proyecto.
+    * El directorio video de funciona tiene el proyecto de funcionamiento.
     * README.md
 
  ### Desarrollo del proyecto

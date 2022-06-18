@@ -232,6 +232,7 @@ class ChatActivity : AppCompatActivity() {
                     val messageObject = Mensaje(messaje, senderUid!!, time)
                     messageObject.imagen = file
                     messageObject.aux=false
+                    messageObject.mensajeId = mensajeId
 
                     val lastMsj = HashMap<String,Any>()
                     lastMsj["lastMsg"] = messageObject.mensaje
@@ -261,6 +262,7 @@ class ChatActivity : AppCompatActivity() {
         val time = System.currentTimeMillis()
         val messageObject = Mensaje(messaje, senderUid!!, time)
         messageObject.aux=false
+        messageObject.mensajeId = mensajeId
 
         val lastMsj = HashMap<String,Any>()
         lastMsj["lastMsg"] = messageObject.mensaje
@@ -293,6 +295,20 @@ class ChatActivity : AppCompatActivity() {
     }
 
     private fun getToken(message: String) {
+        var nom =""
+        val database = FirebaseDatabase.getInstance().getReference("usuarioPerfil").child(senderUid)
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    nom = snapshot.child("nombre").value.toString()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
         val databaseReference = FirebaseDatabase.getInstance().getReference("usuarioPerfil").child(receiverUid)
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -303,15 +319,15 @@ class ChatActivity : AppCompatActivity() {
                     val to = JSONObject()
                     val data = JSONObject()
 
-                    data.put("hisId", receiverUid)
-                    data.put("title", nombre)
+                    data.put("hisId", senderRoom)
+                    data.put("title", nom)
                     data.put("message", message)
-                    data.put("chatId", senderRoom)
+                    data.put("chatId", receiverRoom)
 
                     to.put("to", token)
                     to.put("data", data)
                     sendNotification(to)
-                    Log.d("TOKEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",hisId + " **"+
+                    Log.d("TOKEN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",mensajeId + " **"+
                             nombre+"***"+message+"***"+chatId+"***"+token)
 
 
